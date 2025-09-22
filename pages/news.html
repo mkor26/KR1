@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lamg="ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости обо мне</title>
+    <title>Новости - Семестровая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Новости</div>
+        <!-- Хэдер из основной страницы -->
+        <div class="header">Новостной блог</div>
+
+        <!-- Меню навигации из основной страницы -->
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
@@ -19,31 +22,72 @@
             </ul>
         </div>
 
+        <!-- Блок основной информации с новостями -->
         <div class="content">
             <h1 class="page-title">Последние новости</h1>
 
-            <div class="news-container">
-                <div class="news-card">
-                    <h2 class="news-title">Запуск нового проекта</h2>
-                    <p class="news-date">25 сентября 2024</p>
-                    <p class="news-text">Мы рады сообщить о запуске нашего нового веб-проекта, посвященного современным технологиям разработки.</p>
+            <!-- Новость 1 -->
+            <div class="news-article">
+                <h2 class="news-title">Запуск нового учебного проекта</h2>
+                <div class="news-meta">
+                    <span class="news-date">Дата публикации: 25 сентября 2024 года</span>
+                    <span class="news-author">Автор: Иванов Иван</span>
                 </div>
-
-                <div class="news-card">
-                    <h2 class="news-title">Обновление дизайна</h2>
-                    <p class="news-date">20 сентября 2024</p>
-                    <p class="news-text">Проведен полный редизайн сайта с использованием современных CSS-технологий и градиентов.</p>
+                <div class="news-text">
+                    <p>
+                        Сегодня мы рады сообщить о запуске нового учебного проекта, посвященного веб-разработке.
+                        Проект включает в себя изучение HTML, CSS и основ JavaScript.
+                    </p>
+                    <p>
+                        В рамках проекта студенты смогут создать свой собственный веб-сайт с нуля,
+                        изучить принципы верстки и основы фронтенд-разработки.
+                    </p>
                 </div>
+            </div>
 
-                <div class="news-card">
-                    <h2 class="news-title">Новые возможности</h2>
-                    <p class="news-date">15 сентября 2024</p>
-                    <p class="news-text">Добавлены новые разделы сайта: практики, товары и контакты для удобства пользователей.</p>
+            <!-- Новость 2 -->
+            <div class="news-article">
+                <h2 class="news-title">Обновление учебных материалов</h2>
+                <div class="news-meta">
+                    <span class="news-date">Дата публикации: 20 сентября 2024 года</span>
+                    <span class="news-author">Автор: Петрова Анна</span>
+                </div>
+                <div class="news-text">
+                    <p>
+                        Мы обновили учебные материалы по курсу "Веб-технологии". Добавлены новые разделы
+                        по адаптивной верстке и работе с CSS Grid.
+                    </p>
+                    <p>
+                        Все материалы доступны для студентов в электронном формате.
+                        Обновления затронули также практические задания и примеры кода.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Новость 3 -->
+            <div class="news-article">
+                <h2 class="news-title">Подготовка к семестровой работе</h2>
+                <div class="news-meta">
+                    <span class="news-date">Дата публикации: 15 сентября 2024 года</span>
+                    <span class="news-author">Автор: Сидоров Алексей</span>
+                </div>
+                <div class="news-text">
+                    <p>
+                        Начинается подготовка к семестровой работе по дисциплине "Веб-программирование".
+                        Студентам предстоит создать многостраничный сайт с использованием HTML и CSS.
+                    </p>
+                    <p>
+                        Работа должна включать главную страницу, страницу новостей, практик, товаров и контактов.
+                        Срок сдачи работы - 15 декабря 2024 года.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div class="footer">© 2024 Семестровая работа. Все права защищены.</div>
+        <!-- Футер из основной страницы -->
+        <div class="footer">
+            © 2024 Семестровая работа. ЭФБО-00-00. Все права защищены.
+        </div>
     </div>
 </body>
 </html>

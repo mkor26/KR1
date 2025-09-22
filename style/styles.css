@@ -185,7 +185,8 @@ body {
     padding: 30px; /* Внутренние отступы */
     margin-top: 50px; /* Отступ сверху */
 }
-/* ===== СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ ===== */
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ НОВОСТЕЙ ===== */
+
 .page-title {
     text-align: center;
     color: #2c3e50;
@@ -194,140 +195,72 @@ body {
     font-weight: 300;
 }
 
-/* ===== СТИЛИ ДЛЯ НОВОСТЕЙ ===== */
-.news-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.news-card {
-    background: #f8f9fa;
+.news-article {
+    background: #ffffff;
+    margin-bottom: 30px;
     padding: 25px;
     border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
     border-left: 4px solid #667eea;
 }
 
 .news-title {
     color: #2c3e50;
-    margin: 0 0 10px 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.news-meta {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
 }
 
 .news-date {
     color: #7f8c8d;
     font-size: 14px;
-    margin: 0 0 15px 0;
+    margin-right: 20px;
 }
 
-/* ===== СТИЛИ ДЛЯ ПРАКТИК ===== */
-.practices-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.practice-item {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-}
-
-.practice-status {
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-    .practice-status.completed {
-        background: #d4edda;
-        color: #155724;
-    }
-
-    .practice-status.in-progress {
-        background: #fff3cd;
-        color: #856404;
-    }
-
-    .practice-status.planned {
-        background: #e2e3e5;
-        color: #383d41;
-    }
-
-/* ===== СТИЛИ ДЛЯ ТОВАРОВ ===== */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-    .product-card:hover {
-        transform: translateY(-5px);
-    }
-
-.product-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.product-price {
-    font-size: 18px;
-    font-weight: bold;
+.news-author {
     color: #667eea;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-/* ===== СТИЛИ ДЛЯ КОНТАКТОВ ===== */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.contact-info {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.feedback-form input,
-.feedback-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.news-text {
+    color: #2c3e50;
+    line-height: 1.6;
     font-size: 16px;
 }
 
-.feedback-form button {
-    background: #667eea;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-    .feedback-form button:hover {
-        background: #5a6fd8;
+    .news-text p {
+        margin-bottom: 15px;
     }
 
-/* Активная ссылка в навигации */
-.nav-link.active {
-    background: rgba(255,255,255,0.2);
-    font-weight: bold;
+        .news-text p:last-child {
+            margin-bottom: 0;
+        }
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .news-article {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .news-title {
+        font-size: 20px;
+    }
+
+    .news-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .news-date, .news-author {
+        margin-right: 0;
+    }
 }
