@@ -8,75 +8,83 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <header class="header">
+            <h1>X2App</h1>
+        </header>
+
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="index.html">Главная</a>
+                    <a class="nav-link" href="index.html">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="pages/news.html">Новости</a>
+                    <a class="nav-link" href="pages/news.html">Новости</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="pages/practices.html">Практики</a>
+                    <a class="nav-link" href="pages/practices.html">Практики</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="pages/goods.html">Товары</a>
+                    <a class="nav-link" href="pages/goods.html">Товары</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="pages/contacts.html">Контакты</a>
+                    <a class="nav-link" href="pages/contacts.html">Контакты</a>
                 </li>
             </ul>
-        </div>
-        <div class="content">
-            <div class="profile-header">
+        </nav>
+
+        <main class="content">
+            <article class="profile-header">
                 <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="images/photo.png" alt="Фото
-автора">
+                <img class="profile-photo" src="images/photo.png" alt="Фото автора">
                 <h2 class="profile-name">Коротаев Максим Дмитриевич</h2>
                 <p class="profile-group">ЭФБО-16-24</p>
-            </div>
-            <div class="about-me">
+            </article>
+
+            <section class="about-me">
+                <h2>Обо мне</h2>
                 <p>
                     Обо мне: Я тот еще оболтус. Родился в 2006 в Москве. Я Москаль получается
                 </p>
-            </div>
-            <div class="skills-container">
-                <div class="skill-tag">Навык 1</div>
-                <div class="skill-tag">Навык 2</div>
-                <div class="skill-tag">Навык 3</div>
-                <div class="skill-tag">Навык 4</div>
-            </div>
-            <div class="experience-section">
+            </section>
+
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">Навык 1</div>
+                    <div class="skill-tag">Навык 2</div>
+                    <div class="skill-tag">Навык 3</div>
+                    <div class="skill-tag">Навык 4</div>
+                </div>
+            </section>
+
+            <section class="experience-section">
                 <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">
-                        Работал фантазёром. Сочинял и
-                        праздновал.
-                    </p>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        <p class="experience-desc">
+                            Работал фантазёром. Сочинял и праздновал.
+                        </p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        <p class="experience-desc">
+                            Работал воровством. Воровал и продавал.
+                        </p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        <p class="experience-desc">
+                            Работал в яндексе. Абузил темку с яндекс сплитом.
+                        </p>
+                    </article>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">
-                        Работал воровством. Воровал и
-                        продавал.
-                    </p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">
-                        Работал в яндексе. Абузил темку с яндекс сплитом.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Футер</p>
+        </footer>
     </div>
 </body>
 </html>
