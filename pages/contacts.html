@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lamg="ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - Семестровая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Контакты</div>
-        <div class="nav">
+        <header class="header">
+            <h1>X2App - Контакты</h1>
+        </header>
+        
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -18,33 +20,35 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
+        </nav>
 
-        <div class="content">
+        <main class="content">
             <h1 class="page-title">Свяжитесь с нами</h1>
 
-            <div class="contact-container">
-                <div class="contact-info">
+            <section class="contacts-container">
+                <article class="contact-info">
                     <h2>Контактная информация</h2>
                     <p><strong>Email:</strong> Mkor26@yandex.ru</p>
                     <p><strong>Телефон:</strong> +7 (916) 129 49 53</p>
                     <p><strong>Адрес:</strong> г. Москва, ул. Береговой пр-д</p>
                     <p><strong>Группа:</strong> ЭФБО-16-24</p>
-                </div>
+                </article>
 
-                <div class="contact-form">
+                <article class="contact-form">
                     <h2>Форма обратной связи</h2>
                     <form class="feedback-form">
                         <input type="text" placeholder="Ваше имя" required>
                         <input type="email" placeholder="Ваш email" required>
                         <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
-                        <button type="submit">Отправить сообщение</button>
+                        <button type="submit" class="contact-button">Отправить сообщение</button>
                     </form>
-                </div>
-            </div>
-        </div>
+                </article>
+            </section>
+        </main>
 
-        <div class="footer">© 2024 Семестровая работа. Все права защищены.</div>
+        <footer class="footer">
+            <p>© 2024 Семестровая работа. Все права защищены.</p>
+        </footer>
     </div>
 </body>
 </html>
