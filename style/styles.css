@@ -15,14 +15,46 @@
     --color-background: #ffffff;
     --color-surface: #f8f9fa;
     
-    /* Остальные переменные остаются без изменений */
+    /* Типографика */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-size-base: 16px;
-    /* ... остальные переменные ... */
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 22px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 28px;
+    --font-size-5xl: 32px;
+    
+    /* Размеры и отступы */
+    --spacing-xs: 10px;
+    --spacing-sm: 12px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-2xl: 30px;
+    --spacing-3xl: 40px;
+    --spacing-4xl: 50px;
+    
+    /* Тени */
+    --shadow-sm: 0 4px 15px rgba(79, 172, 254, 0.3);
+    --shadow-md: 0 5px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 25px rgba(102, 126, 234, 0.3);
+    --shadow-xl: 0 0 30px rgba(0,0,0,0.1);
+    
+    /* Радиусы */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 15px;
+    --radius-xl: 25px;
+    
+    /* Анимации */
+    --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
 }
 
 /* Темная тема */
-:root[data-theme="dark"] {
+[data-theme="dark"] {
     --color-primary: #8a63d2;
     --color-primary-dark: #6b46c1;
     --color-secondary: #1a202c;
@@ -39,9 +71,17 @@
     --shadow-xl: 0 0 30px rgba(0,0,0,0.4);
 }
 
-/* Скрываем чекбокс */
-.theme-checkbox {
-    display: none;
+/* ==== БАЗОВЫЕ СТИЛИ ==== */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    min-height: 100vh;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    transition: var(--transition-slow);
 }
 
 /* ==== БЛОК THEME-TOGGLE ==== */
@@ -52,7 +92,7 @@
     z-index: 1000;
 }
 
-.theme-toggle__label {
+.theme-toggle__button {
     background: var(--color-white);
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-xl);
@@ -67,7 +107,7 @@
     height: 50px;
 }
 
-.theme-toggle__label:hover {
+.theme-toggle__button:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -76,25 +116,6 @@
     width: 24px;
     height: 24px;
     fill: var(--color-primary);
-    transition: var(--transition);
-}
-
-/* Иконки для разных тем */
-.theme-toggle__icon--sun {
-    display: block;
-}
-
-.theme-toggle__icon--moon {
-    display: none;
-}
-
-/* Когда тема темная - показываем луну, скрываем солнце */
-:root[data-theme="dark"] .theme-toggle__icon--sun {
-    display: none;
-}
-
-:root[data-theme="dark"] .theme-toggle__icon--moon {
-    display: block;
 }
 
 /* ==== БЛОК PAGE ==== */
