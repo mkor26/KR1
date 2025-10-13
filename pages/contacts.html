@@ -5,226 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - Семестровая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
-    <style>
-        /* Стили для модального окна */
-        dialog::backdrop {
-            background: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s ease;
-        }
-
-        dialog {
-            border: none;
-            border-radius: 12px;
-            padding: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: slideIn 0.3s ease;
-            max-width: 500px;
-            width: 90vw;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px 12px 0 0;
-            margin: 0;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .modal-content {
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e9ecef;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #2c3e50;
-            border: 2px solid #e9ecef;
-        }
-
-        .btn-secondary:hover {
-            background: #e9ecef;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Адаптивность */
-        @media (max-width: 600px) {
-            dialog {
-                margin: 1rem;
-                width: calc(100vw - 2rem);
-            }
-
-            .modal-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="page-container">
-        <header class="header">
-            <h1>Контакты</h1>
-        </header>
+    <!-- Переключатель темы -->
+    <input type="checkbox" id="theme-toggle">
+    
+    <div class="theme-toggle">
+        <label for="theme-toggle" class="theme-toggle__label" aria-label="Переключить тему">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24">
+                <path d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z"/>
+                <path d="M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z"/>
+                <path d="M12,24c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,23.6,12.6,24,12,24z"/>
+                <path d="M4.9,5.5c-0.3,0-0.5-0.1-0.7-0.3L2.8,3.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C5.4,5.4,5.2,5.5,4.9,5.5z"/>
+                <path d="M19.1,20.1c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C19.6,20,19.4,20.1,19.1,20.1z"/>
+                <path d="M1,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1s-0.4,1-1,1H1z"/>
+                <path d="M21,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S21.6,13,21,13z"/>
+                <path d="M4.9,20.1c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C5.4,20,5.2,20.1,4.9,20.1z"/>
+                <path d="M19.1,5.5c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C19.6,5.4,19.4,5.5,19.1,5.5z"/>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24">
+                <path d="M12,22c5.5,0,10-4.5,10-10c0-0.9-0.1-1.8-0.3-2.6c-0.1-0.4-0.5-0.6-0.9-0.5c-0.3,0.1-0.6,0.4-0.6,0.7c0,0,0,0,0,0c0,0.1,0,0.2,0,0.3c0,4.4-3.6,8-8,8c-4.4,0-8-3.6-8-8c0-4.1,3.1-7.5,7-7.9c0.4,0,0.7-0.3,0.7-0.7c0-0.4-0.3-0.7-0.7-0.7c-0.2,0-0.3,0-0.5,0C6.2,2.1,2,6.8,2,12C2,17.5,6.5,22,12,22z"/>
+            </svg>
+        </label>
+    </div>
+
+    <!-- Блок page -->
+    <div class="page">
         
+        <!-- Блок header -->
+        <header class="header">
+            <h1 class="header__title">Контакты</h1>
+        </header>
+
+        <!-- Блок nav -->
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
 
-        <main class="content">
-            <h1 class="page-title">Свяжитесь с нами</h1>
+        <!-- Блок main -->
+        <main class="main">
+            
+            <!-- Блок contacts -->
+            <section class="contacts">
+                <h1 class="contacts__title">Свяжитесь с нами</h1>
 
-            <section class="contacts-container">
-                <article class="contact-info">
-                    <h2>Контактная информация</h2>
-                    <p><strong>Email:</strong> Mkor26@yandex.ru</p>
-                    <p><strong>Телефон:</strong> +7 (916) 129 49 53</p>
-                    <p><strong>Адрес:</strong> г. Москва, ул. Береговой пр-д</p>
-                    <p><strong>Группа:</strong> ЭФБО-16-24</p>
-                </article>
+                <div class="contacts__info">
+                    <article class="contact-info">
+                        <h2 class="contact-info__title">Контактная информация</h2>
+                        <div class="contact-info__content">
+                            <p class="contact-info__item">
+                                <strong class="contact-info__label">Email:</strong> 
+                                <span class="contact-info__value">Mkor26@yandex.ru</span>
+                            </p>
+                            <p class="contact-info__item">
+                                <strong class="contact-info__label">Телефон:</strong> 
+                                <span class="contact-info__value">+7 (916) 129 49 53</span>
+                            </p>
+                            <p class="contact-info__item">
+                                <strong class="contact-info__label">Адрес:</strong> 
+                                <span class="contact-info__value">г. Москва, ул. Береговой пр-д</span>
+                            </p>
+                            <p class="contact-info__item">
+                                <strong class="contact-info__label">Группа:</strong> 
+                                <span class="contact-info__value">ЭФБО-16-24</span>
+                            </p>
+                        </div>
+                    </article>
 
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <h3>Время работы</h3>
-                        <p>Пн-Пт: 9:00-18:00</p>
+                    <div class="contacts__grid">
+                        <div class="contact-item">
+                            <h3 class="contact-item__title">Время работы</h3>
+                            <p class="contact-item__value">Пн-Пт: 9:00-18:00</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-item__title">Социальные сети</h3>
+                            <p class="contact-item__value">VK, Telegram, WhatsApp</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-item__title">Поддержка</h3>
+                            <p class="contact-item__value">Круглосуточно</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 class="contact-item__title">Ответы на вопросы</h3>
+                            <p class="contact-item__value">В течение 24 часов</p>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <h3>Социальные сети</h3>
-                        <p>VK, Telegram, WhatsApp</p>
-                    </div>
+
+                    <!-- Кнопка для открытия модального окна -->
+                    <button class="button button--primary contacts__button" onclick="contactModal.showModal()">
+                        Связаться с нами
+                    </button>
                 </div>
-
-                <!-- Кнопка для открытия модального окна -->
-                <button class="contact-button" onclick="contactModal.showModal()">Связаться с нами</button>
             </section>
         </main>
 
+        <!-- Блок footer -->
         <footer class="footer">
-            <p>© 2024 Семестровая работа. Все права защищены.</p>
+            <p class="footer__text">&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
 
         <!-- Модальное окно для формы обратной связи -->
-        <dialog id="contactModal">
-            <div class="modal-header">
-                <h2>Форма обратной связи</h2>
+        <dialog id="contactModal" class="modal">
+            <div class="modal__header">
+                <h2 class="modal__title">Форма обратной связи</h2>
             </div>
 
-            <div class="modal-content">
-                <form id="feedbackForm" method="dialog">
+            <div class="modal__content">
+                <form id="feedbackForm" class="modal__form" method="dialog">
                     <div class="form-group">
-                        <label for="name">Имя <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        <label for="name" class="form-group__label">
+                            Имя <span class="form-group__required">*</span>
+                        </label>
+                        <input type="text" id="name" name="name" class="form-group__input" required placeholder="Введите ваше имя">
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Телефон <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                        <label for="phone" class="form-group__label">
+                            Телефон <span class="form-group__required">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" class="form-group__input" required placeholder="+7 (XXX) XXX-XX-XX">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Электронная почта <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        <label for="email" class="form-group__label">
+                            Электронная почта <span class="form-group__required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" class="form-group__input" required placeholder="example@mail.ru">
                     </div>
                     
                     <div class="form-group">
-                        <label for="category">Категория обращения <span class="required">*</span></label>
-                        <select id="category" name="category" required>
+                        <label for="category" class="form-group__label">
+                            Категория обращения <span class="form-group__required">*</span>
+                        </label>
+                        <select id="category" name="category" class="form-group__select" required>
                             <option value="">Выберите категорию</option>
                             <option value="technical">Техническая поддержка</option>
                             <option value="commercial">Коммерческое предложение</option>
@@ -236,15 +165,15 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Текст обращения <span class="required">*</span></label>
-                        <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        <label for="message" class="form-group__label">
+                            Текст обращения <span class="form-group__required">*</span>
+                        </label>
+                        <textarea id="message" name="message" class="form-group__textarea" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
                     </div>
 
-                    <div class="modal-actions">
-                        <!-- Кнопка отмены с автоматическим закрытием через form method="dialog" -->
-                        <button type="submit" class="btn btn-secondary">Отмена</button>
-                        <!-- Кнопка отправки с обработкой через JavaScript -->
-                        <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                    <div class="modal__actions">
+                        <button type="submit" class="button button--secondary">Отмена</button>
+                        <button type="button" class="button button--primary" onclick="submitForm()">Отправить</button>
                     </div>
                 </form>
             </div>
