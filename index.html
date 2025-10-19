@@ -3,120 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
-    <link rel="stylesheet" href="style/styles.css">
+    <title>Портфолио - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <input type="checkbox" id="theme-toggle">
-    
-    <div class="theme-toggle">
-        <label for="theme-toggle" class="theme-toggle__label">
-        </label>
-    </div>
-
-    <!-- Блок page -->
-    <div class="page">
-        
-        <!-- Блок header -->
-        <header class="header">
-            <h1 class="header__title">Главная</h1>
-        </header>
-
-        <!-- Блок nav -->
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="index.html">Главная</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="pages/news.html">Новости</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="pages/practices.html">Практики</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="pages/goods.html">Товары</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
-                </li>
-            </ul>
+    <!-- Header -->
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-code-slash"></i>
+                    Коротаев Максим
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/projects.html">Проекты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/diary.html">Дневник</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/contacts.html">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
+    </header>
 
-        <!-- Блок main -->
-        <main class="main">
-            
-            <!-- Блок profile -->
-            <section class="profile">
-                <div class="profile__card">
-                    <h1 class="profile__title">Информация об авторе</h1>
-                    <img class="profile__photo" src="images/photo.png" alt="Фото автора">
-                    <div class="profile__info">
-                        <h2 class="profile__name">Коротаев Максим Дмитриевич</h2>
-                        <p class="profile__group">ЭФБО-16-24</p>
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Привет! Я студент группы ЭФБО-16-24</h1>
+                    <p class="lead mb-4">Увлекаюсь веб-разработкой и современными технологиями</p>
+                    <a href="assets/resume.pdf" class="btn btn-light btn-lg" download>
+                        <i class="bi bi-download me-2"></i>Скачать резюме
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="images/photo.png" alt="Фото студента" class="profile-image img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Мои навыки</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>HTML/CSS</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>JavaScript</span>
+                            <span class="text-primary">80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 80%"></div>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Блок about -->
-            <section class="about">
-                <h2 class="about__title">Обо мне</h2>
-                <div class="about__content">
-                    <p class="about__text">
-                        Обо мне: Я тот еще оболтус. Родился в 2006 в Москве. Я Москаль получается
-                    </p>
-                </div>
-            </section>
-
-            <!-- Блок skills -->
-            <section class="skills">
-                <h2 class="skills__title">Мои навыки</h2>
-                <div class="skills__list">
-                    <div class="skill skill--1">
-                        <span class="skill__name">Навык 1</span>
+                <div class="col-md-6">
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Bootstrap</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="skill skill--2">
-                        <span class="skill__name">Навык 2</span>
-                    </div>
-                    <div class="skill skill--3">
-                        <span class="skill__name">Навык 3</span>
-                    </div>
-                    <div class="skill skill--4">
-                        <span class="skill__name">Навык 4</span>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>React</span>
+                            <span class="text-primary">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 60%"></div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <!-- Блок experience -->
-            <section class="experience">
-                <h2 class="experience__title">Мой опыт работы</h2>
-                <div class="experience__grid">
-                    <article class="experience-card">
-                        <h3 class="experience-card__title">Опыт 1</h3>
-                        <p class="experience-card__desc">
-                            Работал фантазёром. Сочинял и праздновал.
-                        </p>
-                    </article>
-                    <article class="experience-card">
-                        <h3 class="experience-card__title">Опыт 2</h3>
-                        <p class="experience-card__desc">
-                            Работал воровством. Воровал и продавал.
-                        </p>
-                    </article>
-                    <article class="experience-card">
-                        <h3 class="experience-card__title">Опыт 3</h3>
-                        <p class="experience-card__desc">
-                            Работал в яндексе. Абузил темку с яндекс сплитом.
-                        </p>
-                    </article>
+    <!-- Projects Preview -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Лучшие проекты</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="images/projects/project1.jpg" class="card-img-top" alt="Проект 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Личный сайт</h5>
+                            <p class="card-text">Адаптивный сайт-портфолио на HTML, CSS и Bootstrap</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-primary">HTML</span>
+                                <span class="badge bg-primary">CSS</span>
+                                <span class="badge bg-info">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="images/projects/project2.jpg" class="card-img-top" alt="Проект 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Todo-приложение</h5>
+                            <p class="card-text">Приложение для управления задачами на JavaScript</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-success">JavaScript</span>
+                                <span class="badge bg-secondary">LocalStorage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card project-card h-100">
+                        <img src="images/projects/project3.jpg" class="card-img-top" alt="Проект 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Интернет-магазин</h5>
+                            <p class="card-text">Прототип магазина с корзиной товаров</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-warning">React</span>
+                                <span class="badge bg-info">API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="pages/projects.html" class="btn btn-outline-primary">Все проекты</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Блок footer -->
-        <footer class="footer">
-            <p class="footer__text">&copy; 2024 Семестровая работа</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Коротаев Максим. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="pages/contacts.html" class="text-white text-decoration-none">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
