@@ -1,5 +1,6 @@
 /* Custom Styles for Portfolio Project */
 :root {
+    color-scheme: light dark;
     --primary-color: #0d6efd;
     --secondary-color: #6c757d;
     --success-color: #198754;
@@ -8,11 +9,110 @@
     --danger-color: #dc3545;
     --dark-color: #212529;
     --light-color: #f8f9fa;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-2xl: 3rem;
+}
+
+/* Базовые стили из методички */
+html, body { 
+    height: 100%; 
+}
+
+body {
+    margin: 0;
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f8fafc;
+    color: #0b1020;
+}
+
+.page {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main { 
+    flex: 1; 
+}
+
+/* Skip link для доступности */
+.skip-link{
+    position: absolute;
+    inset-inline-start: 1rem;
+    inset-block-start: -100%;
+    z-index: 10000;
+    padding: .5rem .75rem;
+    background: #111;
+    color: #fff;
+    border-radius: .5rem;
+    text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible { 
+    inset-block-start: 1rem; 
+}
+
+:focus-visible { 
+    outline: 3px solid #2563eb; 
+    outline-offset: 2px; 
+}
+
+a, button, input, textarea { 
+    outline-offset: 2px; 
+}
+
+/* Крупные цели на устройствах с pointer:coarse */
+@media (pointer: coarse){
+    a, button, .nav-link { 
+        min-height: 44px; 
+        padding: .75rem 1rem; 
+    }
+}
+
+/* Sticky header с safe areas */
+.nav{
+    position: sticky;
+    top: 0;
+    padding-block-start: calc(.75rem + env(safe-area-inset-top));
+    padding-block-end: .75rem;
+    padding-inline-start: calc(var(--space-md, 1rem) + env(safe-area-inset-left));
+    padding-inline-end: calc(var(--space-md, 1rem) + env(safe-area-inset-right));
+    background: #2563eb;
+    color: #fff;
+    z-index: 100;
+    isolation: isolate;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
 }
 
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+}
+
+/* Плавные размеры с clamp() */
+.section-title { 
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2rem); 
+}
+
+.hero-greeting { 
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem); 
+}
+
+main { 
+    padding-inline: clamp(.75rem, .5rem + 1vw, 2rem); 
+}
+
+/* Герой-изображение */
+.hero_photo{
+    inline-size: 200px;
+    block-size: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .profile-image {
@@ -22,15 +122,34 @@
     border: 5px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Project Cards */
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Адаптивная Grid-сетка для проектов */
+.projects-preview { 
+    margin-block: var(--space-2xl, 3rem); 
+}
+
+.projects-preview_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--space-lg, 1.5rem);
+}
+
+.project-card{
+    background: #fff;
+    border-radius: .75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-width: 0;
     cursor: pointer;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card_title,
+.project-card_description { 
+    overflow-wrap: anywhere; 
 }
 
 .tech-tags {
@@ -40,6 +159,26 @@
 .tech-tags .badge {
     margin-right: 5px;
     margin-bottom: 5px;
+}
+
+/* Контейнерные запросы */
+@supports (container-type: inline-size) {
+    .projects-area {
+        container-type: inline-size;
+        container-name: projects;
+    }
+
+    @container projects (min-width: 640px) {
+        .projects-list { 
+            grid-template-columns: repeat(2, 1fr); 
+        }
+    }
+
+    @container projects (min-width: 960px) {
+        .projects-list { 
+            grid-template-columns: repeat(3, 1fr); 
+        }
+    }
 }
 
 /* Skills Progress */
@@ -114,18 +253,6 @@
     border-color: var(--success-color);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .profile-image {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .hero-section .display-4 {
-        font-size: 2rem;
-    }
-}
-
 /* Course Progress */
 .course-progress .progress {
     height: 10px;
@@ -143,4 +270,101 @@
 
 .navbar-nav .nav-link.active {
     color: var(--primary-color) !important;
+}
+
+/* Доступность: формы, контраст, снижение движения */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Повышенный контраст */
+@media (prefers-contrast: more) {
+    .btn, .filter { 
+        box-shadow: inset 0 0 0 2px #fff; 
+    }
+}
+
+/* Уважение к снижению движения */
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        animation: none !important; 
+        transition: none !important; 
+    }
+    
+    .project-card:hover {
+        transform: none;
+    }
+}
+
+/* Кнопки: минимальная зона клика 44px (WCAG) */
+.btn { 
+    padding-block: max(.5rem, calc((44px - 1em)/2)); 
+}
+
+/* Full-bleed для секций */
+.hero--bleed {
+    margin-inline: calc(50% - 50vw);
+    padding-inline: calc(50vw - 50%);
+}
+
+/* Safe-area в футере */
+.footer { 
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom)); 
+}
+
+/* Ограничение длины строки для читаемости */
+.prose { 
+    max-width: 65ch; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+}
+
+/* Контейнерные единицы для локальных масштабов */
+@supports (container-type: inline-size) {
+    .widget { 
+        container-type: inline-size; 
+    }
+    
+    .widget_title {
+        font-size: clamp(1rem, calc(.5rem + 4cqi), 2rem);
+        margin-block: calc(.5rem + 2cqi);
+    }
+}
+
+/* Grid с явным жёлобом через calc() */
+.two-cols {
+    display: grid;
+    grid-template-columns: calc(50% - var(--space-md)/2) calc(50% - var(--space-md)/2);
+    gap: var(--space-md);
+}
+
+/* Иконка в поле ввода */
+.search_input {
+    --icon: 20px; 
+    --gap: .5rem;
+    background: url(images/search.svg) no-repeat left .75rem center / var(--icon);
+    padding-left: calc(1.5rem + var(--icon) + var(--gap));
+}
+
+/* Плавные поля секций */
+.section, .main { 
+    padding-inline: clamp(1rem, calc(.5rem + 1vw), 2rem); 
 }

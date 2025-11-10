@@ -2,14 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Проекты - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <header class="bg-dark text-white">
+    <!-- Skip link для доступности -->
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+    <header class="bg-dark text-white nav">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="../index.html">
@@ -36,8 +39,8 @@
         </nav>
     </header>
 
-    <main class="container my-5">
-        <h1 class="text-center mb-4">Мои проекты</h1>
+    <main id="main" class="main container my-5">
+        <h1 class="section-title text-center mb-4">Мои проекты</h1>
         
         <!-- Filters -->
         <div class="row mb-4">
@@ -51,54 +54,56 @@
             </div>
         </div>
 
-        <!-- Projects Grid -->
-        <div class="row g-4">
-            <!-- Project 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal1">
-                    <img src="../images/projects/project1.jpg" class="card-img-top" alt="Личный сайт">
-                    <div class="card-body">
-                        <h5 class="card-title">Личный сайт</h5>
-                        <p class="card-text">Адаптивный сайт-портфолио на HTML, CSS и Bootstrap</p>
-                        <div class="tech-tags">
-                            <span class="badge bg-primary">HTML</span>
-                            <span class="badge bg-primary">CSS</span>
-                            <span class="badge bg-info">Bootstrap</span>
+        <!-- Projects Grid с контейнерными запросами -->
+        <section class="projects-area">
+            <div class="projects-list row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                        <img src="../images/projects/project1.jpg" class="card-img-top" alt="Личный сайт" width="300" height="200" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="project-card_title card-title">Личный сайт</h5>
+                            <p class="project-card_description card-text">Адаптивный сайт-портфолио на HTML, CSS и Bootstrap</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-primary">HTML</span>
+                                <span class="badge bg-primary">CSS</span>
+                                <span class="badge bg-info">Bootstrap</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal2">
-                    <img src="../images/projects/project2.jpg" class="card-img-top" alt="Todo-приложение">
-                    <div class="card-body">
-                        <h5 class="card-title">Todo-приложение</h5>
-                        <p class="card-text">Приложение для управления задачами на JavaScript</p>
-                        <div class="tech-tags">
-                            <span class="badge bg-success">JavaScript</span>
-                            <span class="badge bg-secondary">LocalStorage</span>
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                        <img src="../images/projects/project2.jpg" class="card-img-top" alt="Todo-приложение" width="300" height="200" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="project-card_title card-title">Todo-приложение</h5>
+                            <p class="project-card_description card-text">Приложение для управления задачами на JavaScript</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-success">JavaScript</span>
+                                <span class="badge bg-secondary">LocalStorage</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card project-card h-100" data-bs-toggle="modal" data-bs-target="#projectModal3">
-                    <img src="../images/projects/project3.jpg" class="card-img-top" alt="Интернет-магазин">
-                    <div class="card-body">
-                        <h5 class="card-title">Интернет-магазин</h5>
-                        <p class="card-text">Прототип магазина с корзиной товаров и фильтрацией</p>
-                        <div class="tech-tags">
-                            <span class="badge bg-warning">React</span>
-                            <span class="badge bg-info">API</span>
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                        <img src="../images/projects/project3.jpg" class="card-img-top" alt="Интернет-магазин" width="300" height="200" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="project-card_title card-title">Интернет-магазин</h5>
+                            <p class="project-card_description card-text">Прототип магазина с корзиной товаров и фильтрацией</p>
+                            <div class="tech-tags">
+                                <span class="badge bg-warning">React</span>
+                                <span class="badge bg-info">API</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Project Modals -->
@@ -110,7 +115,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="../images/projects/project1.jpg" class="img-fluid mb-3" alt="Личный сайт">
+                    <img src="../images/projects/project1.jpg" class="img-fluid mb-3" alt="Личный сайт" width="800" height="400" loading="lazy">
                     <p>Полностью адаптивный сайт-портфолио, созданный с использованием современных веб-технологий.</p>
                     <p><strong>Технологии:</strong> HTML5, CSS3, Bootstrap 5, JavaScript</p>
                     <div class="d-flex gap-2">
@@ -122,7 +127,7 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="footer bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
