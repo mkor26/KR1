@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Контакты - Портфолио</title>
+    <title>Контакты - Портфолио Коротаева Максима</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <!-- Skip link для доступности -->
-    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
 
-    <header class="bg-dark text-white nav">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Header с семантической навигацией -->
+    <header class="bg-dark text-white nav" role="banner">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Основная навигация">
             <div class="container">
                 <a class="navbar-brand" href="../index.html">
-                    <i class="bi bi-code-slash"></i>
+                    <i class="bi bi-code-slash" aria-hidden="true"></i>
                     Коротаев Максим
                 </a>
+                <button class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Переключить навигацию">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Главная</a>
+                    <ul class="navbar-nav ms-auto" role="menubar">
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="../index.html" role="menuitem">Главная</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="projects.html">Проекты</a>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="projects.html" role="menuitem">Проекты</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="diary.html">Дневник</a>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link" href="diary.html" role="menuitem">Дневник</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contacts.html">Контакты</a>
+                        <li class="nav-item" role="none">
+                            <a class="nav-link active" 
+                               href="contacts.html" 
+                               role="menuitem"
+                               aria-current="page">Контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -39,7 +52,7 @@
         </nav>
     </header>
 
-    <main id="main" class="main container my-5">
+    <main id="main-content" class="main container my-5" role="main">
         <h1 class="section-title text-center mb-5">Свяжитесь со мной</h1>
         
         <div class="row">
@@ -49,21 +62,12 @@
                     <div class="card-body">
                         <div class="text-center mb-4">
                             <picture>
-                                <!-- WebP с поддержкой Retina -->
                                 <source type="image/webp" 
                                         srcset="
                                             ../images/avatar-150.webp 150w,
                                             ../images/avatar-300.webp 300w
                                         "
                                         sizes="(max-width: 768px) 150px, 200px">
-                                
-                                <!-- Разные размеры для разных экранов -->
-                                <source media="(min-width: 1200px)" 
-                                        srcset="../images/avatar-300.png">
-                                <source media="(min-width: 768px)" 
-                                        srcset="../images/avatar-200.png">
-                                
-                                <!-- PNG fallback с поддержкой Retina -->
                                 <img src="../images/avatar-150.png"
                                      srcset="
                                          ../images/avatar-150.png 150w,
@@ -71,32 +75,154 @@
                                      "
                                      sizes="(max-width: 768px) 150px, 200px"
                                      class="rounded-circle border border-4 border-primary"
-                                     alt="Аватар Коротаева Максима"
+                                     alt="Аватар Коротаева Максима - студент веб-разработки"
                                      width="200" height="200"
                                      loading="lazy">
                             </picture>
                         </div>
-                        <form id="contactForm" novalidate>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Имя</label>
-                                <input type="text" class="form-control" id="name" required aria-describedby="name-hint">
-                                <div class="invalid-feedback" role="alert">Пожалуйста, введите ваше имя</div>
-                                <small id="name-hint" class="visually-hidden">Введите ваше полное имя</small>
+                        
+                        <!-- Форма с семантической разметкой -->
+                        <form id="contactForm" novalidate aria-labelledby="form-title">
+                            <h2 id="form-title" class="h4 mb-4 visually-hidden">Форма обратной связи</h2>
+                            
+                            <!-- Группа персональных данных -->
+                            <fieldset class="mb-4" aria-labelledby="personal-info-legend">
+                                <legend id="personal-info-legend" class="h5 mb-3">Персональная информация</legend>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">
+                                            Имя
+                                            <span class="text-danger" aria-hidden="true">*</span>
+                                            <span class="visually-hidden">обязательное поле</span>
+                                        </label>
+                                        <input type="text" 
+                                               class="form-control" 
+                                               id="name" 
+                                               name="name"
+                                               required 
+                                               aria-required="true"
+                                               aria-describedby="name-hint"
+                                               placeholder="Введите ваше полное имя">
+                                        <div class="invalid-feedback" role="alert" id="name-error">
+                                            Пожалуйста, введите ваше имя
+                                        </div>
+                                        <small id="name-hint" class="form-text text-muted">
+                                            Введите ваше полное имя как в паспорте
+                                        </small>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">
+                                            Email
+                                            <span class="text-danger" aria-hidden="true">*</span>
+                                            <span class="visually-hidden">обязательное поле</span>
+                                        </label>
+                                        <input type="email" 
+                                               class="form-control" 
+                                               id="email" 
+                                               name="email"
+                                               required 
+                                               aria-required="true"
+                                               aria-describedby="email-hint email-error"
+                                               placeholder="example@mail.ru">
+                                        <div class="invalid-feedback" role="alert" id="email-error">
+                                            Пожалуйста, введите корректный email адрес
+                                        </div>
+                                        <small id="email-hint" class="form-text text-muted">
+                                            Мы пришлём ответ на этот адрес. Пример: ivan@mail.ru
+                                        </small>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Группа сообщения -->
+                            <fieldset class="mb-4" aria-labelledby="message-legend">
+                                <legend id="message-legend" class="h5 mb-3">Сообщение</legend>
+                                
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Тема сообщения</label>
+                                    <select class="form-select" 
+                                            id="subject" 
+                                            name="subject"
+                                            aria-describedby="subject-hint">
+                                        <option value="">Выберите тему...</option>
+                                        <option value="collaboration">Сотрудничество</option>
+                                        <option value="project">Обсуждение проекта</option>
+                                        <option value="question">Вопрос по обучению</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                    <small id="subject-hint" class="form-text text-muted">
+                                        Выберите наиболее подходящую тему вашего обращения
+                                    </small>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">
+                                        Сообщение
+                                        <span class="text-danger" aria-hidden="true">*</span>
+                                        <span class="visually-hidden">обязательное поле</span>
+                                    </label>
+                                    <textarea class="form-control" 
+                                              id="message" 
+                                              name="message" 
+                                              rows="5" 
+                                              required 
+                                              aria-required="true"
+                                              aria-describedby="message-hint message-error"
+                                              placeholder="Опишите цель вашего обращения..."></textarea>
+                                    <div class="invalid-feedback" role="alert" id="message-error">
+                                        Пожалуйста, введите ваше сообщение
+                                    </div>
+                                    <small id="message-hint" class="form-text text-muted">
+                                        Опишите подробно цель вашего обращения. Минимум 10 символов.
+                                    </small>
+                                </div>
+                            </fieldset>
+
+                            <!-- Группа соглашений -->
+                            <fieldset class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" 
+                                           type="checkbox" 
+                                           id="consent" 
+                                           name="consent"
+                                           required 
+                                           aria-required="true"
+                                           aria-describedby="consent-hint consent-error">
+                                    <label class="form-check-label" for="consent">
+                                        Я соглашаюсь на обработку персональных данных
+                                        <span class="text-danger" aria-hidden="true">*</span>
+                                        <span class="visually-hidden">обязательное поле</span>
+                                    </label>
+                                    <div class="invalid-feedback" role="alert" id="consent-error">
+                                        Необходимо ваше согласие на обработку данных
+                                    </div>
+                                    <small id="consent-hint" class="form-text text-muted">
+                                        Мы обрабатываем ваши данные в соответствии с политикой конфиденциальности
+                                    </small>
+                                </div>
+                            </fieldset>
+
+                            <!-- Кнопки отправки -->
+                            <div class="d-flex gap-2 flex-wrap" role="group" aria-label="Действия с формой">
+                                <button type="submit" 
+                                        class="btn btn-primary"
+                                        aria-describedby="submit-hint">
+                                    Отправить сообщение
+                                </button>
+                                <button type="reset" 
+                                        class="btn btn-outline-secondary"
+                                        aria-describedby="reset-hint">
+                                    Очистить форму
+                                </button>
+                                <small id="submit-hint" class="visually-hidden">
+                                    Нажмите Enter для отправки формы или Tab для перехода к кнопке очистки
+                                </small>
+                                <small id="reset-hint" class="visually-hidden">
+                                    Нажмите Enter для очистки всех полей формы
+                                </small>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required aria-describedby="email-hint email-error">
-                                <div class="invalid-feedback" role="alert">Пожалуйста, введите корректный email</div>
-                                <small id="email-hint" class="visually-hidden">Мы пришлём ответ на этот адрес</small>
-                                <span id="email-error" class="visually-hidden" role="alert"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Сообщение</label>
-                                <textarea class="form-control" id="message" rows="5" required aria-describedby="message-hint"></textarea>
-                                <div class="invalid-feedback" role="alert">Пожалуйста, введите ваше сообщение</div>
-                                <small id="message-hint" class="visually-hidden">Опишите цель вашего обращения</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Отправить сообщение</button>
                         </form>
                     </div>
                 </div>
@@ -106,73 +232,172 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Контакты</h5>
-                        <div class="contact-info">
+                        <h2 class="h5 card-title mb-4">Контактная информация</h2>
+                        <div class="contact-info" role="complementary" aria-labelledby="contact-info-title">
+                            <h3 id="contact-info-title" class="visually-hidden">Способы связи</h3>
+                            
                             <div class="contact-item mb-3">
-                                <picture>
-                                    <source type="image/webp" srcset="../images/icons/email@1x.webp 1x, ../images/icons/email@2x.webp 2x">
-                                    <img src="../images/icons/email@1x.png" 
-                                         srcset="../images/icons/email@1x.png 1x, ../images/icons/email@2x.png 2x"
-                                         alt="Email" 
-                                         width="20" height="20"
-                                         class="me-2">
-                                </picture>
-                                <span>Mkor26@yandex.ru</span>
+                                <i class="bi bi-envelope text-primary me-2" aria-hidden="true"></i>
+                                <a href="mailto:Mkor26@yandex.ru" class="text-decoration-none">
+                                    Mkor26@yandex.ru
+                                </a>
                             </div>
                             <div class="contact-item mb-3">
-                                <picture>
-                                    <source type="image/webp" srcset="../images/icons/github@1x.webp 1x, ../images/icons/github@2x.webp 2x">
-                                    <img src="../images/icons/github@1x.png" 
-                                         srcset="../images/icons/github@1x.png 1x, ../images/icons/github@2x.png 2x"
-                                         alt="GitHub" 
-                                         width="20" height="20"
-                                         class="me-2">
-                                </picture>
-                                <span>GitHub: username</span>
+                                <i class="bi bi-github text-primary me-2" aria-hidden="true"></i>
+                                <a href="https://github.com/username" class="text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                    GitHub: username
+                                    <span class="visually-hidden">(откроется в новом окне)</span>
+                                </a>
                             </div>
                             <div class="contact-item mb-3">
-                                <picture>
-                                    <source type="image/webp" srcset="../images/icons/phone@1x.webp 1x, ../images/icons/phone@2x.webp 2x">
-                                    <img src="../images/icons/phone@1x.png" 
-                                         srcset="../images/icons/phone@1x.png 1x, ../images/icons/phone@2x.png 2x"
-                                         alt="Телефон" 
-                                         width="20" height="20"
-                                         class="me-2">
-                                </picture>
-                                <span>+7 (916) 129-49-53</span>
+                                <i class="bi bi-telephone text-primary me-2" aria-hidden="true"></i>
+                                <a href="tel:+79161294953" class="text-decoration-none">
+                                    +7 (916) 129-49-53
+                                </a>
                             </div>
-                            <div class="contact-item">
-                                <picture>
-                                    <source type="image/webp" srcset="../images/icons/location@1x.webp 1x, ../images/icons/location@2x.webp 2x">
-                                    <img src="../images/icons/location@1x.png" 
-                                         srcset="../images/icons/location@1x.png 1x, ../images/icons/location@2x.png 2x"
-                                         alt="Местоположение" 
-                                         width="20" height="20"
-                                         class="me-2">
-                                </picture>
+                            <div class="contact-item mb-3">
+                                <i class="bi bi-geo-alt text-primary me-2" aria-hidden="true"></i>
                                 <span>Москва, Россия</span>
                             </div>
+                            <div class="contact-item">
+                                <i class="bi bi-clock text-primary me-2" aria-hidden="true"></i>
+                                <span>Доступен с 9:00 до 18:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Дополнительная информация -->
+                        <div class="mt-4 p-3 bg-light rounded" role="region" aria-labelledby="accessibility-info">
+                            <h3 id="accessibility-info" class="h6 mb-2">Доступность</h3>
+                            <p class="small mb-0">
+                                Эта страница оптимизирована для использования с клавиатуры и скринридеров.
+                                Используйте Tab для навигации и Enter для активации элементов.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Live Region для уведомлений -->
+        <div id="live-region" 
+             class="visually-hidden" 
+             aria-live="polite" 
+             aria-atomic="true"
+             role="status">
+            <!-- Сюда будут добавляться динамические уведомления -->
+        </div>
     </main>
 
-    <footer class="footer bg-dark text-white py-4 mt-5">
+    <footer class="footer bg-dark text-white py-4 mt-5" role="contentinfo">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <p class="mb-0">&copy; 2024 Коротаев Максим. Все права защищены.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="contacts.html" class="text-white text-decoration-none">Контакты</a>
+                    <a href="contacts.html" class="text-white text-decoration-none">
+                        Контакты
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../scripts/main.js"></script>
+    
+    <!-- Скрипт для улучшения доступности -->
+    <script src="../scripts/accessibility.js"></script>
+    
+    <!-- Скрипт валидации формы -->
+    <script>
+        // Базовая валидация формы
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const liveRegion = document.getElementById('live-region');
+            
+            // Функция для объявления в live region
+            function announceToScreenReader(message) {
+                liveRegion.textContent = message;
+                // Очищаем через секунду для новых сообщений
+                setTimeout(() => {
+                    liveRegion.textContent = '';
+                }, 1000);
+            }
+            
+            // Валидация в реальном времени
+            form.addEventListener('blur', function(event) {
+                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.tagName === 'SELECT') {
+                    validateField(event.target);
+                }
+            }, true);
+            
+            function validateField(field) {
+                const errorElement = document.getElementById(field.id + '-error');
+                
+                if (field.validity.valid) {
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                    }
+                } else {
+                    field.classList.remove('is-valid');
+                    field.classList.add('is-invalid');
+                    if (errorElement) {
+                        if (field.validity.valueMissing) {
+                            errorElement.textContent = 'Это поле обязательно для заполнения';
+                        } else if (field.validity.typeMismatch) {
+                            errorElement.textContent = 'Пожалуйста, введите корректный формат';
+                        } else if (field.validity.tooShort) {
+                            errorElement.textContent = `Минимальная длина: ${field.minLength} символов`;
+                        }
+                    }
+                }
+            }
+            
+            // Обработка отправки формы
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                    announceToScreenReader('В форме есть ошибки. Пожалуйста, проверьте все обязательные поля.');
+                    
+                    // Фокусируемся на первом невалидном поле
+                    const firstInvalid = form.querySelector(':invalid');
+                    if (firstInvalid) {
+                        firstInvalid.focus();
+                    }
+                } else {
+                    // Имитация успешной отправки
+                    announceToScreenReader('Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    
+                    // Сбрасываем визуальные состояния
+                    form.querySelectorAll('.is-valid, .is-invalid').forEach(el => {
+                        el.classList.remove('is-valid', 'is-invalid');
+                    });
+                }
+                
+                form.classList.add('was-validated');
+            });
+            
+            // Улучшение навигации с клавиатуры
+            document.addEventListener('keydown', function(event) {
+                // Escape закрывает любые открытые тултипы или сообщения
+                if (event.key === 'Escape') {
+                    const openElements = document.querySelectorAll('[aria-expanded="true"]');
+                    openElements.forEach(element => {
+                        if (element.getAttribute('aria-expanded') === 'true') {
+                            element.setAttribute('aria-expanded', 'false');
+                            element.focus();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
