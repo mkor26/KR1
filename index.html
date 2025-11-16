@@ -46,7 +46,7 @@
     <!-- Hero Section -->
     <main id="main" class="main">
         <section class="hero-section bg-primary text-white py-5">
-            <div class="container">
+            <div class="container position-relative">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <h1 class="hero-greeting display-4 fw-bold mb-3">Привет! Я студент группы ЭФБО-16-24</h1>
@@ -56,22 +56,30 @@
                         </a>
                     </div>
                     <div class="col-lg-6 text-center">
-                        <!-- Упрощенная версия с fallback -->
-                        <div class="hero-image-container">
-                            <img class="hero-photo img-fluid rounded-circle"
-                                src="images/photo.png"
-                                srcset="images/photo.png 1x, images/photo@2x.png 2x"
-                                sizes="(max-width: 768px) 250px, 300px"
+                        <!-- Простая версия с приоритетом отображения -->
+                        <div class="hero-image-wrapper">
+                            <img class="hero-photo img-fluid"
+                                src="images/photo.jpg"
+                                alt="Портрет студента Коротаев Максим"
                                 width="300"
                                 height="300"
                                 loading="eager"
-                                onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMwMDc0ZDUiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMjAiIHI9IjUwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTEwMCAyMDBDMTAwIDIzMCAxMjAgMjUwIDE1MCAyNTBDMTgwIDI1MCAyMDAgMjMwIDIwMCAyMDBWMzAwSDEwMFYyMDBaIiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iMTUwIiB5PSIyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0IiBmb250LWZhbWlseT0iQXJpYWwiPsswb9C+0YDRg9C00L7QstCw0L3QtTwvdGV4dD48L3N2Zz4='">
+                                onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallback-image').style.display='block';">
+                            
+                            <!-- Fallback изображение -->
+                            <div id="fallback-image" class="fallback-image" style="display: none;">
+                                <div class="fallback-content">
+                                    <i class="bi bi-person-circle fallback-icon"></i>
+                                    <p class="fallback-text">Коротаев Максим</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Остальные секции без изменений -->
         <!-- Skills Section -->
         <section class="py-5">
             <div class="container">
