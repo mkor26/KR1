@@ -1,10 +1,9 @@
 /* ============================================================
-   ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
+   ПЕРЕМЕННЫЕ
 ============================================================ */
 :root {
     color-scheme: light dark;
-
-    --primary-color: #2563eb;
+    --primary-color: #0d6efd;
     --secondary-color: #6c757d;
     --success-color: #198754;
     --info-color: #0dcaf0;
@@ -19,10 +18,10 @@
 }
 
 /* ============================================================
-   БАЗОВЫЕ СТИЛИ С УЧЁТОМ MOBILE-VIEWPORT
+   БАЗОВЫЕ СТИЛИ
 ============================================================ */
-html, body {
-    height: 100%;
+html, body { 
+    height: 100%; 
     margin: 0;
     padding: 0;
 }
@@ -33,24 +32,25 @@ body {
     color: #0b1020;
 }
 
-/* Страница растягивается на всю высоту (fallback + svh + dvh) */
 .page {
-    min-height: 100vh;   /* старый */
-    min-height: 100svh;  /* стабильная высота */
-    min-height: 100dvh;  /* динамическая высота */
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
 
-main { flex: 1; }
+main { 
+    flex: 1; 
+}
 
 /* ============================================================
-   SKIP-LINK ДЛЯ ДОСТУПНОСТИ
+   SKIP LINK
 ============================================================ */
-.skip-link {
+.skip-link{
     position: absolute;
-    inset-inline-start: 1rem;
-    inset-block-start: -100%;
+    left: 1rem;
+    top: -100%;
     z-index: 10000;
     padding: .5rem .75rem;
     background: #111;
@@ -58,182 +58,128 @@ main { flex: 1; }
     border-radius: .5rem;
     text-decoration: none;
 }
+
 .skip-link:focus,
-.skip-link:focus-visible {
-    inset-block-start: 1rem;
+.skip-link:focus-visible { 
+    top: 1rem; 
 }
 
-:focus-visible {
-    outline: 3px solid #2563eb;
-    outline-offset: 2px;
-}
-
-a, button, input, textarea { outline-offset: 2px; }
-
-/* На устройствах с пальцевым вводом увеличиваем цели */
-@media (pointer: coarse) {
-    a, button, .nav__link {
-        min-height: 44px;
-        padding: .75rem 1rem;
-    }
+:focus-visible { 
+    outline: 3px solid #2563eb; 
+    outline-offset: 2px; 
 }
 
 /* ============================================================
-   HEADER / NAV — sticky + safe-area
+   NAV (STICKY + SAFE-AREA)
 ============================================================ */
-.nav {
+.nav{
     position: sticky;
     top: 0;
-
-    padding-block-start: calc(.75rem + env(safe-area-inset-top));
-    padding-block-end: .75rem;
-    padding-inline-start: calc(var(--space-md) + env(safe-area-inset-left));
-    padding-inline-end: calc(var(--space-md) + env(safe-area-inset-right));
-
     background: #2563eb;
     color: #fff;
     z-index: 100;
-    isolation: isolate;
-    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    padding-block-start: calc(.75rem + env(safe-area-inset-top));
+    padding-inline: calc(1rem + env(safe-area-inset-left)) calc(1rem + env(safe-area-inset-right));
 }
 
 /* ============================================================
-   HERO SECTION (LCP) + КРУГЛОЕ ФОТО
+   HERO
 ============================================================ */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
 }
 
-/* FULL BLEED section (если нужно растянуть фон) */
-.hero--bleed {
-    margin-inline: calc(50% - 50vw);
-    padding-inline: calc(50vw - 50%);
-}
-
-.hero__greeting {
-    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.8rem);
-    font-weight: 700;
-}
-
-/* Плавное ограничение ширины текста */
-.hero__text {
-    max-width: 50ch;
-}
-
-/* Фигура с изображением */
-.hero__image {
-    display: flex;
-    justify-content: center;
-}
-
-/* Аватарка (LCP) */
-.hero__photo {
-    inline-size: 200px;
-    block-size: 200px;
-
+/* Фото студента — теперь круглое */
+.student-photo {
     border-radius: 50%;
     object-fit: cover;
-
-    box-shadow:
-        0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1);
-
     border: 5px solid rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================================
-   СЕКЦИОННЫЕ ОТСТУПЫ (clamp)
+   ТИПОГРАФИКА
 ============================================================ */
-.section,
-.main {
-    padding-inline: clamp(1rem, calc(.5rem + 1vw), 2rem);
+.section-title { 
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem); 
+    font-weight: 600;
 }
 
-.section-title {
-    font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
-    font-weight: 600;
+.hero-greeting { 
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.8rem); 
+    font-weight: 700;
+}
+
+/* ============================================================
+   GRID ПРОЕКТОВ (auto-fit / minmax)
+============================================================ */
+.projects-preview_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg, 1.5rem);
+}
+
+.project-card{
+    background: #fff;
+    border-radius: .75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    min-width: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card_title,
+.project-card_description { 
+    overflow-wrap: anywhere; 
+}
+
+.tech-tags .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 /* ============================================================
    SKILLS
 ============================================================ */
-.progress { height: 8px; }
-
-/* ============================================================
-   GRID ПРОЕКТОВ (auto-fit + minmax)
-============================================================ */
-.projects-preview { margin-block: var(--space-2xl); }
-
-.projects-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    gap: var(--space-lg);
-}
-
-.project-card {
-    background: #fff;
-    border-radius: .75rem;
-    min-width: 0;
-    box-shadow:
-        0 4px 6px -1px rgb(0 0 0 / 0.1),
-        0 2px 4px -2px rgb(0 0 0 / 0.1);
-    transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-}
-
-.project-card__title,
-.project-card__description {
-    overflow-wrap: anywhere;
-}
-
-.tech-tags .badge {
-    margin-right: .5rem;
-    margin-bottom: .5rem;
+.progress {
+    height: 8px;
 }
 
 /* ============================================================
-   КОНТЕЙНЕРНЫЕ ЗАПРОСЫ (CQ)
+   CONTAINER QUERIES (если браузер поддерживает)
 ============================================================ */
-
 @supports (container-type: inline-size) {
-
     .projects-area {
         container-type: inline-size;
-        container-name: projects;
     }
 
-    @container projects (min-width: 640px) {
-        .projects-list {
-            grid-template-columns: repeat(2, 1fr);
+    @container (min-width: 640px) {
+        .projects-list { 
+            grid-template-columns: repeat(2, 1fr); 
         }
     }
 
-    @container projects (min-width: 960px) {
-        .projects-list {
-            grid-template-columns: repeat(3, 1fr);
+    @container (min-width: 960px) {
+        .projects-list { 
+            grid-template-columns: repeat(3, 1fr); 
         }
     }
 }
 
 /* ============================================================
-   АДАПТИВНОСТЬ (fallback)
+   MEDIA QUERIES
 ============================================================ */
 @media (max-width: 768px) {
-    .hero__text { text-align: center; }
-}
-
-/* ============================================================
-   ДОСТУПНОСТЬ: ВЫСОКИЙ КОНТРАСТ, ОТКЛЮЧЕНИЕ АНИМАЦИЙ
-============================================================ */
-@media (prefers-contrast: more) {
-    .button, .filter, .project-card {
-        box-shadow: inset 0 0 0 2px #fff;
+    .projects-preview_grid {
+        grid-template-columns: 1fr;
     }
 }
 
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
@@ -242,8 +188,10 @@ a, button, input, textarea { outline-offset: 2px; }
 }
 
 /* ============================================================
-   FOOTER — safe-area
+   HIGH CONTRAST
 ============================================================ */
-.footer {
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+@media (prefers-contrast: more) {
+    .project-card {
+        box-shadow: inset 0 0 0 2px #000;
+    }
 }
