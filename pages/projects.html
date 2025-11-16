@@ -60,7 +60,24 @@
                 <!-- Project 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal1">
-                        <img src="../images/projects/project1.jpg" class="card-img-top" alt="Личный сайт" width="300" height="200" loading="lazy">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="
+                                    ../images/projects/project1-300.webp 300w,
+                                    ../images/projects/project1-600.webp 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px">
+                            <img src="../images/projects/project1-300.jpg"
+                                srcset="
+                                    ../images/projects/project1-300.jpg 300w,
+                                    ../images/projects/project1-600.jpg 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px"
+                                class="card-img-top"
+                                alt="Личный сайт - адаптивное портфолио"
+                                width="300" height="200"
+                                loading="lazy">
+                        </picture>
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Личный сайт</h5>
                             <p class="project-card_description card-text">Адаптивный сайт-портфолио на HTML, CSS и Bootstrap</p>
@@ -76,7 +93,24 @@
                 <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal2">
-                        <img src="../images/projects/project2.jpg" class="card-img-top" alt="Todo-приложение" width="300" height="200" loading="lazy">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="
+                                    ../images/projects/project2-300.webp 300w,
+                                    ../images/projects/project2-600.webp 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px">
+                            <img src="../images/projects/project2-300.jpg"
+                                srcset="
+                                    ../images/projects/project2-300.jpg 300w,
+                                    ../images/projects/project2-600.jpg 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px"
+                                class="card-img-top"
+                                alt="Todo-приложение - управление задачами"
+                                width="300" height="200"
+                                loading="lazy">
+                        </picture>
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Todo-приложение</h5>
                             <p class="project-card_description card-text">Приложение для управления задачами на JavaScript</p>
@@ -91,7 +125,24 @@
                 <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="project-card card h-100" data-bs-toggle="modal" data-bs-target="#projectModal3">
-                        <img src="../images/projects/project3.jpg" class="card-img-top" alt="Интернет-магазин" width="300" height="200" loading="lazy">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="
+                                    ../images/projects/project3-300.webp 300w,
+                                    ../images/projects/project3-600.webp 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px">
+                            <img src="../images/projects/project3-300.jpg"
+                                srcset="
+                                    ../images/projects/project3-300.jpg 300w,
+                                    ../images/projects/project3-600.jpg 600w
+                                "
+                                sizes="(max-width: 768px) 100vw, 300px"
+                                class="card-img-top"
+                                alt="Интернет-магазин - прототип с корзиной"
+                                width="300" height="200"
+                                loading="lazy">
+                        </picture>
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Интернет-магазин</h5>
                             <p class="project-card_description card-text">Прототип магазина с корзиной товаров и фильтрацией</p>
@@ -115,7 +166,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="../images/projects/project1.jpg" class="img-fluid mb-3" alt="Личный сайт" width="800" height="400" loading="lazy">
+                    <picture>
+                        <source type="image/webp" srcset="../images/projects/project1-600.webp">
+                        <img src="../images/projects/project1-600.jpg" 
+                             class="img-fluid mb-3" 
+                             alt="Личный сайт - полный макет"
+                             width="800" height="400" 
+                             loading="lazy">
+                    </picture>
                     <p>Полностью адаптивный сайт-портфолио, созданный с использованием современных веб-технологий.</p>
                     <p><strong>Технологии:</strong> HTML5, CSS3, Bootstrap 5, JavaScript</p>
                     <div class="d-flex gap-2">
