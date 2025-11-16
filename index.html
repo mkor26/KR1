@@ -72,35 +72,11 @@
 
                     <!-- ФОТО — КРУГЛОЕ + picture + srcset -->
                     <div class="col-lg-6 text-center">
-                        <picture>
-                            <!-- WebP для современных браузеров -->
-                            <source type="image/webp"
-                                srcset="
-                                    images/photo-150.webp 150w,
-                                    images/photo-200.webp 200w,
-                                    images/photo-300.webp 300w
-                                "
-                                sizes="(max-width: 768px) 150px, 200px">
-                            
-                            <!-- Разные размеры для разных экранов -->
-                            <source media="(min-width: 1200px)" 
-                                    srcset="images/photo-300.png">
-                            <source media="(min-width: 768px)" 
-                                    srcset="images/photo-200.png">
-                            
-                            <!-- PNG fallback -->
-                            <img class="student-photo img-fluid rounded-circle"
-                                src="images/photo-150.png"
-                                srcset="
-                                    images/photo-150.png 150w,
-                                    images/photo-200.png 200w,
-                                    images/photo-300.png 300w
-                                "
-                                sizes="(max-width: 768px) 150px, 200px"
-                                width="200" height="200"
-                                alt="Фото студента Коротаева Максима"
-                                loading="lazy">
-                        </picture>
+                        <img class="student-photo img-fluid rounded-circle"
+                        src="images/photo-200.png"
+                        alt="Фото студента Коротаева Максима"
+                        width="200" height="200"
+                        loading="lazy">
                     </div>
                 </div>
             </div>
