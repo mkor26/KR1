@@ -56,34 +56,23 @@
                         </a>
                     </div>
                     <div class="col-lg-6 text-center">
-                        <figure class="hero_image">
-                            <picture>
-                                <!-- Современные форматы с fallback -->
-                                <source
-                                    type="image/avif"
-                                    srcset="images/photo-150.avif 150w, images/photo-200.avif 200w, images/photo-300.avif 300w"
-                                    sizes="(max-width: 768px) 150px, 200px">
-                                <source
-                                    type="image/webp"
-                                    srcset="images/photo-150.webp 150w, images/photo-200.webp 200w, images/photo-300.webp 300w"
-                                    sizes="(max-width: 768px) 150px, 200px">
-                                <!-- Основное изображение с правильным путем -->
-                                <img class="hero_photo img-fluid rounded-circle"
-                                    src="images/photo.png"
-                                    srcset="images/photo.png 1x, images/photo@2x.png 2x"
-                                    sizes="(max-width: 768px) 150px, 200px"
-                                    width="200" height="200"
-                                    alt="Портрет студента Коротаев Максим"
-                                    fetchpriority="high"
-                                    style="border: 5px solid rgba(255, 255, 255, 0.3);">
-                            </picture>
-                        </figure>
+                        <!-- Упрощенная версия с fallback -->
+                        <div class="hero-image-container">
+                            <img class="hero-photo img-fluid rounded-circle"
+                                src="images/photo.jpg"
+                                srcset="images/photo.jpg 1x, images/photo@2x.jpg 2x"
+                                sizes="(max-width: 768px) 250px, 300px"
+                                alt="Портрет студента Коротаев Максим"
+                                width="300"
+                                height="300"
+                                loading="eager"
+                                onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMwMDc0ZDUiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMjAiIHI9IjUwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTEwMCAyMDBDMTAwIDIzMCAxMjAgMjUwIDE1MCAyNTBDMTgwIDI1MCAyMDAgMjMwIDIwMCAyMDBWMzAwSDEwMFYyMDBaIiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iMTUwIiB5PSIyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE0IiBmb250LWZhbWlseT0iQXJpYWwiPsswb9C+0YDRg9C00L7QstCw0L3QtTwvdGV4dD48L3N2Zz4='">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Остальные секции остаются без изменений -->
         <!-- Skills Section -->
         <section class="py-5">
             <div class="container">
@@ -139,7 +128,7 @@
                 <h2 class="section-title text-center mb-5">Лучшие проекты</h2>
                 <div class="projects-preview_grid">
                     <div class="project-card card h-100">
-                        <img src="images/projects/project1.jpg" class="card-img-top" alt="Личный сайт" width="300" height="200" loading="lazy">
+                        <img src="images/projects/project1.jpg" class="card-img-top" alt="Личный сайт" width="300" height="200" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Личный сайт</h5>
                             <p class="project-card_description card-text">Адаптивный сайт-портфолио на HTML, CSS и Bootstrap</p>
@@ -151,7 +140,7 @@
                         </div>
                     </div>
                     <div class="project-card card h-100">
-                        <img src="images/projects/project2.jpg" class="card-img-top" alt="Todo-приложение" width="300" height="200" loading="lazy">
+                        <img src="images/projects/project2.jpg" class="card-img-top" alt="Todo-приложение" width="300" height="200" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Todo-приложение</h5>
                             <p class="project-card_description card-text">Приложение для управления задачами на JavaScript</p>
@@ -162,7 +151,7 @@
                         </div>
                     </div>
                     <div class="project-card card h-100">
-                        <img src="images/projects/project3.jpg" class="card-img-top" alt="Интернет-магазин" width="300" height="200" loading="lazy">
+                        <img src="images/projects/project3.jpg" class="card-img-top" alt="Интернет-магазин" width="300" height="200" loading="lazy" onerror="this.style.display='none'">
                         <div class="card-body">
                             <h5 class="project-card_title card-title">Интернет-магазин</h5>
                             <p class="project-card_description card-text">Прототип магазина с корзиной товаров</p>
