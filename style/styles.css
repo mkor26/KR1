@@ -94,6 +94,9 @@ main {
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: auto;
+    max-width: 300px;
 }
 
 /* ============================================================
@@ -148,6 +151,94 @@ main {
 }
 
 /* ============================================================
+   АДАПТИВНЫЕ ИЗОБРАЖЕНИЯ
+============================================================ */
+.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius, 8px);
+}
+
+/* Object-fit демонстрация */
+.object-fit-cover { 
+    object-fit: cover; 
+}
+
+.object-fit-contain { 
+    object-fit: contain; 
+    background: #f8f9fa;
+}
+
+.object-fit-fill { 
+    object-fit: fill; 
+}
+
+/* Retina изображения */
+.retina-image {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Timeline стили */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-marker {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    border: 2px solid #dee2e6;
+}
+
+.timeline-marker img {
+    width: 24px;
+    height: 24px;
+}
+
+.timeline-content {
+    flex: 1;
+    padding-bottom: 1rem;
+}
+
+.timeline-item.completed .timeline-marker {
+    border-color: var(--success-color);
+    background: var(--success-color);
+}
+
+.timeline-item.in-progress .timeline-marker {
+    border-color: var(--warning-color);
+    background: var(--warning-color);
+}
+
+/* Contact info icons */
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-item img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
    CONTAINER QUERIES (если браузер поддерживает)
 ============================================================ */
 @supports (container-type: inline-size) {
@@ -175,6 +266,21 @@ main {
     .projects-preview_grid {
         grid-template-columns: 1fr;
     }
+    
+    .student-photo {
+        max-width: 200px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .timeline-marker {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        align-self: center;
+    }
 }
 
 /* ============================================================
@@ -185,6 +291,10 @@ main {
         animation: none !important;
         transition: none !important;
     }
+    
+    .project-card:hover {
+        transform: none;
+    }
 }
 
 /* ============================================================
@@ -193,5 +303,29 @@ main {
 @media (prefers-contrast: more) {
     .project-card {
         box-shadow: inset 0 0 0 2px #000;
+    }
+    
+    .timeline-marker {
+        border-width: 3px;
+    }
+}
+
+/* ============================================================
+   DARK THEME
+============================================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #e2e8f0;
+        --bg-color: #0f172a;
+        --border-color: #334155;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .object-fit-contain {
+        background: #475569;
     }
 }
